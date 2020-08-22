@@ -1,10 +1,11 @@
+// strings to be dispalyed when win/loose/error
+const looserString = () => alert("Looser! Try again!")
+const winnerString = () => alert("Winner! Wanna do it again?")
+const startButton = document.getElementById("startButton")
+
 const rockPaperScissors = (() => {
   // prompt dialog to get the users choice
   const userChoice = (() => prompt("Rock...Paper...Scissors...GO!"))()
-  // strings to be dispalyed when win/loose/error
-  const looserString = () => alert("Looser! Try again!")
-  const winnerString = () => alert("Winner! Wanna do it again?")
-  const startButton = document.getElementById("startButton")
 
   // get random computer choice of rock, paper, or scissors based on percentage
   const computerChoice = (() => {
@@ -55,4 +56,5 @@ const rockPaperScissors = (() => {
   console.log("computerChoice => " + computerChoice)
 })
 
+startButton.addEventListener('click', () => startButton.classList.add(".pressed"))
 startButton.addEventListener('click', rockPaperScissors)
