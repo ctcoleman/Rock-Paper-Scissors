@@ -3,19 +3,16 @@ const looserString = "Looser! Try again!"
 const winnerString = "Winner! Wanna do it again?"
 const choicesArray = ["Rock", "Paper", "Scissors"]
 const choicesContainer = document.querySelector(".playButtonsContainer")
-const startButton = document.getElementById("startButton")
 
-/*
- * function to create button based on choice given with a class and id
- */
-const createChoiceButton = choice => {
-  let newButton = document.createElement('button')
+// function to create button based on choice given with a class and id
+const createChoiceButtons = choice => {
+  let newChoiceButton = document.createElement('button')
 
-  newButton.textContent = `${choice}`
-  newButton.setAttribute("class", "choiceButton")
-  newButton.setAttribute("id", `${choice}Button`)
+  newChoiceButton.textContent = `${choice}`
+  newChoiceButton.setAttribute("class", "choiceButton")
+  newChoiceButton.setAttribute("id", `${choice}Button`)
 
-  return newButton
+  return newChoiceButton
 }
 
 // get random computer choice of rock, paper, or scissors based on percentage
@@ -30,9 +27,7 @@ const computerPick = (() => {
   }
 })()
 
-/*
-* function that performs the rock paper scissors based on random computer choice
-*/
+// function that performs the rock paper scissors based on random computer choice
 const rockPaperScissors = ((computerEntry, userEntry) => {
   // create function to display who is the winner between user prompt choice and random computer choice
   if (userEntry === computerEntry) {
@@ -62,14 +57,12 @@ const rockPaperScissors = ((computerEntry, userEntry) => {
   }
 })
 
-/*
- * use the createChoiceButton function to create a button for each choice 
- */
+
+// use the createChoiceButtons function to create a button for each choice 
 choicesArray.forEach((i) => {
-  choicesContainer.appendChild(createChoiceButton(i))
+  choicesContainer.appendChild(createChoiceButtons(i))
 })
 let choiceButtonArray = Array.from(document.getElementsByClassName("choiceButton"))
-
 // for each choice button add a click event listener
 // when button is pressed perform the rockPaperScissors function
 // with the computerChoice as ranodm choice
